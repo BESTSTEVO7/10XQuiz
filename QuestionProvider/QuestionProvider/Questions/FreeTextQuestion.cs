@@ -1,18 +1,19 @@
-﻿using System;
+﻿using QuestionProvider.Answers;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace QuestionProvider.Questions
 {
-    public class FreeTextQuestion : IQuestion
+    public class FreeTextQuestion : IQuestion<FreeTextAnswer>
     {
-        public string Text => throw new NotImplementedException();
+        public string Text { get; }
 
-        public int Difficulty => throw new NotImplementedException();
+        public int Difficulty { get; }
 
-        public IAnswerCollection Solution => throw new NotImplementedException();
+        public AnswerCollection<FreeTextAnswer> Answers => throw new NotImplementedException();
 
-        public double Eveluate(IAnswerCollection answers)
+        public double Evaluate(AnswerCollection<FreeTextAnswer> answers)
         {
             throw new NotImplementedException();
         }

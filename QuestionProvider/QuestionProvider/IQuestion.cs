@@ -4,11 +4,11 @@ using System.Text;
 
 namespace QuestionProvider
 {
-    public interface IQuestion
+    public interface IQuestion<Answer> where Answer : IAnswer
     {
         string Text { get; }
         int Difficulty { get; }
-        IAnswerCollection Solution { get; }
-        double Eveluate(IAnswerCollection answers);
+        AnswerCollection<Answer> Answers { get; }
+        double Evaluate(AnswerCollection<Answer> answers);
     }
 }
