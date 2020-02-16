@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz.Logic", "src\Quiz.Logic\Quiz.Logic.csproj", "{369467A5-15D1-4B06-90F0-BDE1E79C9AEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz.WebApp", "src\Quiz.WebApp\Quiz.WebApp.csproj", "{665CFB72-E7B3-49DD-8FA8-5753CD6893AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{369467A5-15D1-4B06-90F0-BDE1E79C9AEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{369467A5-15D1-4B06-90F0-BDE1E79C9AEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{369467A5-15D1-4B06-90F0-BDE1E79C9AEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{369467A5-15D1-4B06-90F0-BDE1E79C9AEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{665CFB72-E7B3-49DD-8FA8-5753CD6893AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{665CFB72-E7B3-49DD-8FA8-5753CD6893AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{665CFB72-E7B3-49DD-8FA8-5753CD6893AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{665CFB72-E7B3-49DD-8FA8-5753CD6893AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B89F1BD1-B4C4-4B6B-B8A2-D2404C9C3831}
+	EndGlobalSection
+EndGlobal
