@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz.Logic", "src\Quiz.Logic\Quiz.Logic.csproj", "{369467A5-15D1-4B06-90F0-BDE1E79C9AEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quiz.Logic", "src\Quiz.Logic\Quiz.Logic.csproj", "{369467A5-15D1-4B06-90F0-BDE1E79C9AEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz.WebApp", "src\Quiz.WebApp\Quiz.WebApp.csproj", "{665CFB72-E7B3-49DD-8FA8-5753CD6893AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quiz.WebApp", "src\Quiz.WebApp\Quiz.WebApp.csproj", "{665CFB72-E7B3-49DD-8FA8-5753CD6893AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz.Logic.Test", "test\Quiz.Logic.Test\Quiz.Logic.Test.csproj", "{52239ACC-C276-404F-A633-84EE11E0A6F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz.WebApp.Test", "test\Quiz.WebApp.Test\Quiz.WebApp.Test.csproj", "{61DFCE16-27AE-4EBD-9768-BACB812E5ECC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{665CFB72-E7B3-49DD-8FA8-5753CD6893AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{665CFB72-E7B3-49DD-8FA8-5753CD6893AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{665CFB72-E7B3-49DD-8FA8-5753CD6893AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52239ACC-C276-404F-A633-84EE11E0A6F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52239ACC-C276-404F-A633-84EE11E0A6F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52239ACC-C276-404F-A633-84EE11E0A6F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52239ACC-C276-404F-A633-84EE11E0A6F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61DFCE16-27AE-4EBD-9768-BACB812E5ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61DFCE16-27AE-4EBD-9768-BACB812E5ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61DFCE16-27AE-4EBD-9768-BACB812E5ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61DFCE16-27AE-4EBD-9768-BACB812E5ECC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
