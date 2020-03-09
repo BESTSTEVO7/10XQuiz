@@ -7,6 +7,7 @@ namespace Quiz.WebApp
     using Microsoft.Extensions.Hosting;
     using Quiz.WebApp.Data;
 
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Conventional method names")]
     public class Startup
     {
         public Startup(IConfiguration configuration)
