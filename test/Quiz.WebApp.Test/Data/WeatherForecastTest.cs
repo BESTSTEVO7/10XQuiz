@@ -10,6 +10,7 @@
         [InlineData(0, 32)]
         [InlineData(5, 41)]
         [InlineData(-5, 23)]
+        [InlineData(-16, 3)]
         public void ConvertFromCelciusToFahrenheit(int celcius, int fahrenheit)
         {
             // Arrange
