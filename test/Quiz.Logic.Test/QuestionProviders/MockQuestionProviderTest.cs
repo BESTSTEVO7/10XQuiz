@@ -15,7 +15,7 @@
             MockQuestionProvider provider = new MockQuestionProvider();
 
             // Act
-            IQuestion actual = provider.GetRandomQuestion(difficulty);
+            IQuestion actual = provider.GetNextQuestion(difficulty);
 
             // Assert
             actual.Difficulty.Should().Be(difficulty);

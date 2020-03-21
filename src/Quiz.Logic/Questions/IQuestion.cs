@@ -6,7 +6,11 @@
     public interface IQuestion
     {
         int Difficulty { get; }
+    }
 
-        double Evaluate(IList<IAnswer> deliveredAnswers);
+    public interface IQuestion<TAnswer> : IQuestion
+        where TAnswer : IAnswer
+    {
+        double Evaluate(IList<TAnswer> deliveredAnswers);
     }
 }

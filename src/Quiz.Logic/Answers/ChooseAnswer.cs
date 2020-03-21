@@ -10,10 +10,11 @@
 
         public Guid Id { get; set; }
 
-        public ChooseAnswer(string text, bool isCorrect)
+        public ChooseAnswer(string text, bool isCorrect, Guid id)
         {
             Text = text;
             IsCorrect = isCorrect;
+            Id = id;
         }
     }
 }

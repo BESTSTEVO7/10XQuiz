@@ -4,6 +4,6 @@
 
     public interface IAnswer
     {
-        public Guid Id { get; set; }
+        Guid Id { get; set; }
     }
 }

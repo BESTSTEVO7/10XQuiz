@@ -1,6 +1,8 @@
 <Project>
 
   <PropertyGroup>
+    <Nullable>enable</Nullable>
+
     <Authors>Stefan Masznitz</Authors>
   </PropertyGroup>
 

@@ -1,5 +1,6 @@
 ﻿namespace Quiz.Logic.Questions
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Quiz.Logic.Answers;
@@ -18,31 +19,40 @@
 
         public ChooseQuestion(IList<IChooseAnswer> answers, int difficulty)
         {
-            Answers = answers;
+            Answers = answers ?? throw new ArgumentNullException(nameof(answers));
             Difficulty = difficulty;
         }
 
-        public double Evaluate(IList<IAnswer> deliveredAnswers)
+        public double Evaluate(IList<IChooseAnswer> deliveredAnswers)
         {
+            if (deliveredAnswers is null)
+            {
+                throw new ArgumentNullException(nameof(deliveredAnswers));
+            }
+
             if (Answers.Count != deliveredAnswers.Count)
             {
-                throw new System.ArgumentException(DeliveredAnswersAmountErrorMessage);
+                throw new ArgumentException(DeliveredAnswersAmountErrorMessage);
             }
 
             int correctAnswers = 0;
 
-            foreach (IAnswer answer in deliveredAnswers)
+            foreach (IChooseAnswer answer in deliveredAnswers)
             {
-                IAnswer correctAnswer = Answers.FirstOrDefault(a => a.Id == answer.Id);
+                IChooseAnswer correctAnswer = Answers.FirstOrDefault(a => a.Id == answer.Id);
                 if (correctAnswer == default)
                 {
-                    throw new System.ArgumentException(InvalidAnswerErrorMessage);
+                    throw new ArgumentException(InvalidAnswerErrorMessage);
                 }
 
-                correctAnswers = answer.Equals(deliveredAnswers) ? correctAnswers++ : correctAnswers;
+                // Consider replacing the comparison with override of equal method on IAnswer or IEqualityComparer<IChooseAnswer>.
+                if (answer.Id == correctAnswer.Id && correctAnswer.IsCorrect == answer.IsCorrect)
+                {
+                    correctAnswers++;
+                }
             }
 
-            return correctAnswers / Answers.Count;
+            return correctAnswers / Answers.Count * 100;
         }
     }
 }

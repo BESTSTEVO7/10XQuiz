@@ -4,6 +4,6 @@
 
     public interface IQuestionProvider
     {
-        IQuestion GetRandomQuestion(int difficulty);
+        IQuestion GetNextQuestion(int difficulty);
     }
 }

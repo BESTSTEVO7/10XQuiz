@@ -2,8 +2,8 @@
 {
     public interface IChooseAnswer : IAnswer
     {
-        public string Text { get; }
+        string Text { get; }
 
-        public bool IsCorrect { get; }
+        bool IsCorrect { get; }
     }
 }
