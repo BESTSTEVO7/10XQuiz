@@ -6,4 +6,8 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Quiz.Logic\Quiz.Logic.csproj" />
+  </ItemGroup>
+
 </Project>
