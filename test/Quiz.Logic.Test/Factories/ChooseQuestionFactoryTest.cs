@@ -1,11 +1,38 @@
 ﻿namespace Quiz.Logic.Test.Factories
 {
+    using System;
     using FluentAssertions;
     using Quiz.Logic.Questions;
     using Xunit;
 
     public class ChooseQuestionFactoryTest
     {
+        [Fact]
+        public void Create_DifficultyLessThenZero_ThrowsArgumentException()
+        {
+            // Arrange
+            int difficulty = -1;
+
+            // Act
+            Func<IChooseQuestion> func = () => ChooseQuestionFactory.Create(difficulty, 0, TrueAnswers.None);
+
+            // Assert
+            func.Should().ThrowExactly<ArgumentException>();
+        }
+
+        [Fact]
+        public void Create_AmountOfAnswersLessThenZero_ThrowsArgumentException()
+        {
+            // Arrange
+            int amount = -1;
+
+            // Act
+            Func<IChooseQuestion> func = () => ChooseQuestionFactory.Create(0, amount, TrueAnswers.None);
+
+            // Assert
+            func.Should().ThrowExactly<ArgumentException>();
+        }
+
         [Fact]
         public void Create_OneQuestionTrue_ReturnsQuestion()
         {
