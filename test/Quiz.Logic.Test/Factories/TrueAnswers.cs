@@ -7,7 +7,7 @@
     {
         None = 0,
         FirstAnswer = 1,
-        SecondAnser = 2,
+        SecondAnswer = 2,
         ThirdAnswer = 4,
         FourthAnswer = 8,
         FifthAnswer = 16,

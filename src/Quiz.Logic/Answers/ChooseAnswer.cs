@@ -6,7 +6,7 @@
     {
         public string Text { get; }
 
-        public bool IsCorrect { get; }
+        public bool IsCorrect { get; set; }
 
         public Guid Id { get; set; }
 

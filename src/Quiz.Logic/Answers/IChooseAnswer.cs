@@ -4,6 +4,6 @@
     {
         string Text { get; }
 
-        bool IsCorrect { get; }
+        bool IsCorrect { get; set; }
     }
 }

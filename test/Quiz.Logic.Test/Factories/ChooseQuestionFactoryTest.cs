@@ -84,7 +84,7 @@
         {
             // Arrange
             int amount = 2;
-            TrueAnswers trueAnswers = TrueAnswers.SecondAnser;
+            TrueAnswers trueAnswers = TrueAnswers.SecondAnswer;
 
             // Act
             IChooseQuestion actual = ChooseQuestionFactory.Create(0, amount, trueAnswers);
@@ -117,7 +117,7 @@
         {
             // Arrange
             int amount = 3;
-            TrueAnswers trueAnswers = TrueAnswers.FirstAnswer | TrueAnswers.SecondAnser;
+            TrueAnswers trueAnswers = TrueAnswers.FirstAnswer | TrueAnswers.SecondAnswer;
 
             // Act
             IChooseQuestion actual = ChooseQuestionFactory.Create(0, amount, trueAnswers);
@@ -134,7 +134,7 @@
         {
             // Arrange
             int amount = 3;
-            TrueAnswers trueAnswers = TrueAnswers.FirstAnswer | TrueAnswers.SecondAnser | TrueAnswers.ThirdAnswer;
+            TrueAnswers trueAnswers = TrueAnswers.FirstAnswer | TrueAnswers.SecondAnswer | TrueAnswers.ThirdAnswer;
 
             // Act
             IChooseQuestion actual = ChooseQuestionFactory.Create(0, amount, trueAnswers);
@@ -169,7 +169,7 @@
         {
             // Arrange
             int amount = 4;
-            TrueAnswers trueAnswers = TrueAnswers.FirstAnswer | TrueAnswers.SecondAnser | TrueAnswers.ThirdAnswer | TrueAnswers.FourthAnswer;
+            TrueAnswers trueAnswers = TrueAnswers.FirstAnswer | TrueAnswers.SecondAnswer | TrueAnswers.ThirdAnswer | TrueAnswers.FourthAnswer;
 
             // Act
             IChooseQuestion actual = ChooseQuestionFactory.Create(0, amount, trueAnswers);
