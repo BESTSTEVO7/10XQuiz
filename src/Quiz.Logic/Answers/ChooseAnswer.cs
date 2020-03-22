@@ -6,7 +6,7 @@
     {
         public string Text { get; }
 
-        public bool IsCorrect { get; set; }
+        public bool IsCorrect { get; }
 
         public Guid Id { get; set; }
 
@@ -15,6 +15,11 @@
             Text = text;
             IsCorrect = isCorrect;
             Id = id;
+        }
+
+        public IChooseAnswer SetAnswer(bool isCorrect)
+        {
+            return new ChooseAnswer(Text, isCorrect, Id);
         }
     }
 }

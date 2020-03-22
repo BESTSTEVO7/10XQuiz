@@ -5,6 +5,8 @@
 
     public interface IChooseQuestion : IQuestion<IChooseAnswer>
     {
-        IList<IChooseAnswer> Answers { get; }
+        IReadOnlyList<IChooseAnswer> Answers { get; }
+
+        IList<IChooseAnswer> GetAnswerOptions();
     }
 }

@@ -13,29 +13,35 @@
         private const string InvalidAnswerErrorMessage =
             "Delivered answer is not in the set of possible answers.";
 
-        public IList<IChooseAnswer> Answers { get; }
+        public IReadOnlyList<IChooseAnswer> Answers { get; }
 
         public int Difficulty { get; }
 
-        public ChooseQuestion(IList<IChooseAnswer> answers, int difficulty)
+        public ChooseQuestion(IReadOnlyList<IChooseAnswer> answers, int difficulty)
         {
             Answers = answers ?? throw new ArgumentNullException(nameof(answers));
             Difficulty = difficulty;
         }
 
-        public double Evaluate(IList<IChooseAnswer> deliveredAnswers)
+        public IList<IChooseAnswer> GetAnswerOptions()
+        {
+            return Answers.ToList();
+        }
+
+        public double Evaluate(IEnumerable<IChooseAnswer> deliveredAnswers)
         {
             if (deliveredAnswers is null)
             {
                 throw new ArgumentNullException(nameof(deliveredAnswers));
             }
 
-            if (Answers.Count != deliveredAnswers.Count)
+            if (Answers.Count != deliveredAnswers.Count())
             {
                 throw new ArgumentException(DeliveredAnswersAmountErrorMessage);
             }
 
-            int correctAnswers = 0;
+            // Double as datatype to prevent casting later for the calculation because I need this amount to calculate the percentage.
+            double correctAnswers = 0;
 
             foreach (IChooseAnswer answer in deliveredAnswers)
             {
@@ -46,13 +52,13 @@
                 }
 
                 // Consider replacing the comparison with override of equal method on IAnswer or IEqualityComparer<IChooseAnswer>.
-                if (answer.Id == correctAnswer.Id && correctAnswer.IsCorrect == answer.IsCorrect)
+                if (answer.Id == correctAnswer.Id && correctAnswer.IsCorrect == answer.IsCorrect && correctAnswer.IsCorrect)
                 {
                     correctAnswers++;
                 }
             }
 
-            return correctAnswers / Answers.Count * 100;
+            return correctAnswers / Answers.Where(a => a.IsCorrect).Count() * 100;
         }
     }
 }

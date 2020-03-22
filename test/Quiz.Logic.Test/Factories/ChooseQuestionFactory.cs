@@ -23,7 +23,7 @@
                 throw new ArgumentException(AmountArgumentException, nameof(amount));
             }
 
-            IList<IChooseAnswer> answers = new List<IChooseAnswer>();
+            List<IChooseAnswer> answers = new List<IChooseAnswer>();
             int flagValue = 1;
             for (int i = 0; i < amount; i++)
             {
@@ -31,7 +31,7 @@
                 flagValue *= 2;
             }
 
-            return new ChooseQuestion(answers, difficulty);
+            return new ChooseQuestion(answers.AsReadOnly(), difficulty);
         }
     }
 }

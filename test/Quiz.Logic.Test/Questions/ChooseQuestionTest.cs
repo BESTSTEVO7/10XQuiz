@@ -14,7 +14,7 @@
         public void Constructor_AnswersNull_ThrowsArgumentNullException()
         {
             // Arrange
-            IList<IChooseAnswer>? answers = null;
+            IReadOnlyList<IChooseAnswer>? answers = null;
 
             // Act
             Func<IChooseQuestion> func = () => new ChooseQuestion(answers!, 0);
@@ -43,10 +43,11 @@
             // Arrange
             double expected = 0;
             IChooseQuestion question = ChooseQuestionFactory.Create(0, 2, TrueAnswers.FirstAnswer);
-            question.Answers[0].IsCorrect = false;
+            IList<IChooseAnswer> answers = question.GetAnswerOptions();
+            answers[0] = answers[0].SetAnswer(false);
 
             // Act
-            var actual = question.Evaluate(question.Answers);
+            var actual = question.Evaluate(answers);
 
             // Assert
             actual.Should().Be(expected);
@@ -72,10 +73,11 @@
             // Arrange
             double expected = 0;
             IChooseQuestion question = ChooseQuestionFactory.Create(0, 2, TrueAnswers.SecondAnswer);
-            question.Answers[1].IsCorrect = false;
+            IList<IChooseAnswer> answers = question.GetAnswerOptions();
+            answers[1] = answers[1].SetAnswer(false);
 
             // Act
-            var actual = question.Evaluate(question.Answers);
+            var actual = question.Evaluate(answers);
 
             // Assert
             actual.Should().Be(expected);
@@ -101,10 +103,11 @@
             // Arrange
             double expected = 50;
             IChooseQuestion question = ChooseQuestionFactory.Create(0, 3, TrueAnswers.FirstAnswer | TrueAnswers.SecondAnswer);
-            question.Answers[0].IsCorrect = false;
+            IList<IChooseAnswer> answers = question.GetAnswerOptions();
+            answers[0] = answers[0].SetAnswer(false);
 
             // Act
-            var actual = question.Evaluate(question.Answers);
+            var actual = question.Evaluate(answers);
 
             // Assert
             actual.Should().Be(expected);

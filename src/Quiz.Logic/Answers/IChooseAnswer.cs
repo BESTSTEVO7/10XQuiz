@@ -4,6 +4,8 @@
     {
         string Text { get; }
 
-        bool IsCorrect { get; set; }
+        bool IsCorrect { get; }
+
+        IChooseAnswer SetAnswer(bool isCorrect);
     }
 }

@@ -11,6 +11,6 @@
     public interface IQuestion<TAnswer> : IQuestion
         where TAnswer : IAnswer
     {
-        double Evaluate(IList<TAnswer> deliveredAnswers);
+        double Evaluate(IEnumerable<TAnswer> deliveredAnswers);
     }
 }
