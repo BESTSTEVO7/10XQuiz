@@ -216,3 +216,6 @@ dotnet_diagnostic.SA1201.severity = none
 
 # CA1303: Literale nicht als lokalisierte Parameter übergeben
 dotnet_diagnostic.CA1303.severity = none
+
+# SA1602: Enumeration items should be documented
+dotnet_diagnostic.SA1602.severity = none
