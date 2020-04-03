@@ -16,10 +16,20 @@ jobs:
       with:
         dotnet-version: 3.1.100
       if: matrix.os == 'macOS-latest' || matrix.os == 'ubuntu-latest'
-    - uses: actions/checkout@v2
-    - name: Restore with dotnet
-      run: dotnet restore ./Quiz.sln
+    - name: Check out repository
+      uses: actions/checkout@v2
+    - name: Restore tools with dotnet
+      run: dotnet tool restore --configfile ./nuget.config
+    - name: Restore dependencies with dotnet
+      run: dotnet restore ./Quiz.sln --configfile ./nuget.config
     - name: Build with dotnet
       run: dotnet build ./Quiz.sln --configuration Release --no-restore
-    - name: Test with dotnet
-      run: dotnet test ./Quiz.sln --configuration Release --no-build
+    - name: Test and collect with dotnet
+      run: dotnet test ./Quiz.sln --configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory ./TestResults --settings ./datacollection.runsettings
+    - name: Generate code coverage report with ReportGenerator
+      run: dotnet reportgenerator -reports:./TestResults/*/coverage.cobertura.xml -targetdir:./TestResults/coveragereport -reporttypes:Html
+    - name: Publish code coverage results
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: CodeCoverage-${{ matrix.os }}
+        path: ./TestResults/coveragereport
