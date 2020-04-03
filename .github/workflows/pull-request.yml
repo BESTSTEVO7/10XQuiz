@@ -27,9 +27,9 @@ jobs:
     - name: Test and collect with dotnet
       run: dotnet test ./Quiz.sln --configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory ./TestResults --settings ./datacollection.runsettings
     - name: Generate code coverage report with ReportGenerator
-      run: dotnet reportgenerator -reports:./TestResults/*/coverage.cobertura.xml -targetdir:./TestResults/coveragereport -reporttypes:Html
+      run: dotnet reportgenerator -reports:./TestResults/*/coverage.cobertura.xml -targetdir:./TestResults/coveragereport -reporttypes:HtmlInline
     - name: Publish code coverage results
       uses: actions/upload-artifact@v1.0.0
       with:
-        name: CodeCoverage-${{ matrix.os }}
+        name: CodeCoverage_${{ matrix.os }}
         path: ./TestResults/coveragereport
