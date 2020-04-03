@@ -18,7 +18,7 @@ if (Test-Path -Path $TestResultsDirectoryPath) {
     Remove-Item -Path $TestResultsDirectoryPath -Recurse
 }
 
-dotnet tool restore
+dotnet tool restore --configfile $NuGetConfigFilePath
 
 dotnet restore $SolutionFilePath --configfile $NuGetConfigFilePath
 dotnet build $SolutionFilePath --configuration $Configuration --no-restore
@@ -26,7 +26,7 @@ dotnet test $SolutionFilePath --configuration $Configuration --collect:"XPlat Co
 
 $CoverageReports = "$($TestResultsDirectoryPath)\*\coverage.cobertura.xml"
 $TargetDirectory = Join-Path -Path $TestResultsDirectoryPath -ChildPath 'coveragereport'
-dotnet reportgenerator -reports:$CoverageReports -targetdir:$TargetDirectory -reporttypes:Html
+dotnet reportgenerator -reports:$CoverageReports -targetdir:$TargetDirectory -reporttypes:HtmlInline
 
 $ReportFilePath = Join-Path -Path $TargetDirectory -ChildPath 'index.htm'
 Invoke-Item -Path $ReportFilePath
