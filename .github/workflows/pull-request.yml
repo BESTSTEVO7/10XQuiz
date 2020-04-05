@@ -12,10 +12,10 @@ jobs:
         os: [macOS-latest, ubuntu-latest, windows-latest]
     steps:
     - name: Setup .NET Core if needed
+      if: matrix.os == 'macOS-latest' || matrix.os == 'ubuntu-latest'
       uses: actions/setup-dotnet@v1.4.0
       with:
         dotnet-version: 3.1.100
-      if: matrix.os == 'macOS-latest' || matrix.os == 'ubuntu-latest'
     - name: Check out repository
       uses: actions/checkout@v2
     - name: Restore tools with dotnet
