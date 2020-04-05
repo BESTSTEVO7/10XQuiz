@@ -8,7 +8,7 @@ param (
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
-$RootPath = (Get-Item -Path $PSScriptRoot).Parent
+$RootPath = (Get-Item -Path $PSScriptRoot).Parent.FullName
 $SolutionFilePath = Join-Path -Path $RootPath -ChildPath 'Quiz.sln'
 $NuGetConfigFilePath = Join-Path -Path $RootPath -ChildPath 'nuget.config'
 $RunSettingsFilePath = Join-Path -Path $RootPath -ChildPath 'datacollection.runsettings'
